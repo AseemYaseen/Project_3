@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ProjectEasy1.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="headContanier">
+        <span class="logo">logo</span>
+        <ul>
+            <li class="active">Home</li>
+            <li>Products</li>
+            <li>About us</li>
+            <li>login</li>
+        </ul>
+    </header>
+
+
+    <main>
+        <form>
+            <span>Customer Name:</span>
+            <input type="text" id="custName" onchange="customerName()" >
+
+            <span>Your order:</span>
+            <select>
+                <option>Burger</option>
+                <option>HotDogs</option>
+                <option>Pizza</option>
+            </select>
+            
+            <button id="AskFood">Ask For Cheef</button>
+        </form>
+        
+        <div class="delete">
+            <button id="deleteTable">Remove table content</button>
+            <button id="deleteStorage">Delete localStorage</button>
+        </div>
+
+        <table id="table">
+
+        </table>
+
+    </main>
+
+
+
+    <script src="ProjectEasy.js"></script>
+</body>
+</html>
