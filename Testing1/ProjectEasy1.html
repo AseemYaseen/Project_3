@@ -22,13 +22,13 @@
     <main>
         <form>
             <span>Customer Name:</span>
-            <input type="text" id="custName" onchange="customerName()" >
+            <input type="text" id="custName" >
 
             <span>Your order:</span>
-            <select>
-                <option>Burger</option>
-                <option>HotDogs</option>
-                <option>Pizza</option>
+            <select id="selcetFood">
+                <option value="Burger">Burger</option>
+                <option value="HotDogs">HotDogs</option>
+                <option value="Pizza">Pizza</option>
             </select>
             
             <button id="AskFood">Ask For Cheef</button>
@@ -40,7 +40,11 @@
         </div>
 
         <table id="table">
-
+            
+            <p id="p1"></p>
+            <p id="p2"></p>
+            <p id="p3"></p>
+            
         </table>
 
     </main>
