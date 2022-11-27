@@ -369,49 +369,7 @@ h1{
 
 
 
-@media  screen and (min-width:360px) and (max-width:540px) {
 
-  #selectStyle{
-appearance: none; 
-outline: 0;
-box-shadow: none;
-background-color: white;
-padding: 10px;
-position: relative;
-display: flex;
-width: 120px;
-height: 20px;
-border: 3px solid #d79f03;
-border-radius: .25em;
-font-size: 15px;
-color: #005a6a;}
-
-
- 
-
-
-  nav{
-    display: none;
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    height: 100vh;
-    left: 0;
-    width: 90px;
-    /* width: 280px; */
-    background:#d79f03;
-    overflow:hidden;
-    transition:0.5s;
-  }
-
-  .logout{
-    position:absolute;
-    bottom: 50%;
-  }
-  
-
-
- }
  /* ///-- footer --//// */
 .footer{
   text-align: center;
@@ -442,3 +400,53 @@ opacity: 0.8;
   color: #efc437;
 }
 /* ////////// */
+
+
+
+
+.butoo {
+  
+  color: white;
+  width: 20px;
+  height: 10px;
+}
+
+
+.flexbuto {
+  display: flex;
+  justify-content: center;
+}
+
+ @media screen and (min-width: 900px) {
+  #selectStyle{
+    appearance: none; 
+    outline: 0;
+    box-shadow: none;
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    width: 120px;
+    height: 20px;
+    border: 3px solid #000000;
+    border-radius: .25em;
+    font-size: 15px;
+    color: #005a6a;}
+    
+    #asem {
+      position: sticky;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      left: 0;
+      width: 90px;
+       width: 280px; 
+       background: #000000 !important;
+      overflow: hidden;
+      transition: 0.5s;
+    } 
+      .logout{
+        position:absolute;
+        bottom: 50%;
+      } 
+ } 

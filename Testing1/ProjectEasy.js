@@ -9,10 +9,10 @@
 
 
 
-let eve = document.getElementById('AskFood').addEventListener('click',submitt)
+let eve = document.getElementById('AskFood')
+eve.addEventListener('click',submitt)
 
- document.getElementById('custName').value
- document.getElementById('selcetFood').value
+
 
 let arrr;
 
@@ -25,11 +25,16 @@ if (localStorage.pro != null) {
 
 function submitt(e) {
         e.preventDefault()
+
+        let Namee = document.getElementById('custName').value
+        let foood = document.getElementById('selcetFood').value
+        console.log(Namee)
         
 let price
 
     if (selcetFood.value == 'Burger') {
          price = 4
+         
     }
     
     if (selcetFood.value == 'HotDogs') {
@@ -45,13 +50,25 @@ let price
         food:selcetFood.value,
         price:price
     }
+
     
    arrr.push(obj)
    localStorage.setItem('pro',JSON.stringify(arrr))
 
    let y = JSON.parse(localStorage.getItem('pro'))
-   document.getElementById('p1').innerHTML = y
+   let table = `<table>`
+   table += `<tr><th>Name</th><th>Food</th><th>Price</th></tr>`
+   arrr.forEach(element => {
+       table += `<tr><td>${element.name}</td><td>${element.food}</td><td>${element.price}</td></tr>`
+   });
+   table += `</table>`
+
+//    arrr.map(function (ele){
+//     console.log(ele.name,ele.price,ele.food)
+//    })
+   document.getElementById('p1').innerHTML = table
 }
+
 
 
 
