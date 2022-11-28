@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Attendance tabel Info</title>
-  <link rel="stylesheet" href="./attendance.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" href="../img/logo.png">
+  <link rel="stylesheet" href="./students.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <link rel="icon" href="../img/logo.png">
+<title> Students</title>
 </head>
 <body>
 
@@ -41,10 +40,11 @@
             <i class="fas fa-solid fa-comments"></i>
           <span class="nav-item">Feadback</span>
         </a></li>
-        <li id="" onclick="move(id)"><a href="../students/students.html">
-          <i class="fas fa-solid fa-graduation-cap"></i>
-          <span class="nav-item">Students</span>
       </a></li>
+      <li id="" onclick="move(id)"><a href="../students/students.html">
+        <i class="fas fa-solid fa-graduation-cap"></i>
+        <span class="nav-item">Students</span>
+    </a></li>
     
         <!-- <li><a href="#">
           <i class="fas fa-cog"></i>
@@ -88,7 +88,7 @@
           <h1> AQABA SECOND COHORT STUDENTS</h1>
         </div>
         <div class="edit_box attendance-list">
-            <button class="att_button" type="button" onclick="abs_traine()">Take attendance</button>
+            <button class="add_button" type="button" onclick="Add_traine()">+Add traine</button>
         </div>
         <!-- <div id="date_head"><div id="daily_attendance_situ" class="date"></div>
         <div id="daily_date" class="date"></div></div> -->
@@ -201,6 +201,6 @@
   </script>
   </body>
   </html>
-<script src="./attendance.js"></script>
+<script src="./students.js"></script>
 </body>
 </html>

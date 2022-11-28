@@ -38,7 +38,7 @@ nav:hover {
 .logo {
     text-align: center;
     display: flex;
-    margin: 10px 0 0 10px;
+    margin: 10px 0 0 0px;
     padding-bottom: 3rem;
 }
 .logo img{
@@ -203,7 +203,7 @@ a:hover .fas {
 }
 
 #slides {
-    padding: 10px;
+    /* padding: 10px; */
     position: relative;
     z-index: 1;
 }
@@ -300,7 +300,7 @@ a:hover .fas {
 }
 
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
 
     #slide1:checked~#controls label:nth-child(2),
     #slide2:checked~#controls label:nth-child(3),
@@ -317,7 +317,9 @@ a:hover .fas {
         max-width: calc(100% - 140px);
         margin: 0 auto;
     }
-}
+} */
+
+
 /* ///-- footer --//// */
 .footer{
     text-align: center;
@@ -348,7 +350,114 @@ a:hover .fas {
     color: #efc437;
 }
 .slide-content p {
-    font-size: 20px;
+    font-size: 100%;
 
 }
+.logo img{
+    /* margin-right:5px ; */
+    width: 70px;
+    height: 70px;
+    border-radius:50%;
+  }
 /* ////////// */
+
+@media (max-width:768px){
+
+    body {
+        background-image: url(../img/back1.jpg);
+        background-size: cover;
+    
+    }
+    #homepage{
+        display: flex;
+        flex-direction: column
+    }
+
+    #slider{
+    margin: 10% auto;
+    width: 30%;
+    height: 40vh;
+    border-top-left-radius: 100px;
+    padding:0%;
+    font-size:100%;    
+}
+#bullets {
+    margin: -50%;
+    text-align: center;
+
+}
+.welcometext h2{
+    margin: 0% auto;
+    font-size: 100%;
+    
+}
+.welcometext h1{
+        margin: 0% auto;
+        font-size: 300%;
+
+    }
+
+
+.slide-content p {
+    font-size: 10px;
+    padding: 4%;
+}
+
+
+.inner h2 {
+    padding-top: 0%;
+    font-size: larger;
+}
+
+}
+ @media (max-width:992px){
+
+    body {
+        background-image: url(../img/back1.jpg);
+        background-size: cover;
+    
+    }
+    nav:hover {
+        width: 0px;
+        transition: 1s;
+    }
+
+    #slider{
+        /* margin: 10% auto; */
+        height: 45vh;
+    }
+
+#bullets {
+    margin: -50%;
+    text-align: center;
+
+}
+.welcometext h2{
+    margin: 0% auto;
+    font-size: 300%;
+    
+}
+.welcometext h1{
+        margin: 0% auto;
+        font-size: 600%;
+
+    }
+
+
+.slide-content p {
+    font-size: 10px;
+    padding: 4%;
+}
+
+
+.inner h2 {
+    padding-top: 0%;
+    font-size: larger;
+}
+nav:hover {
+    width: 0px;
+    transition: 1s;
+}
+   
+} 
+

@@ -3,22 +3,25 @@
 // loged_in = {"name":"alaa",
 // "email":"alaa@gmail.com",
 // "phone_num":"0777777777"}
+
+
+// add objects for feedbacks 
 alaa_feedback = JSON.parse(localStorage.getItem("Alaa_feedback"))||
 [{"traine":"Talab yaseen",
-"feddbacktext":"you are great"},
+"feddbacktext":"he is great"},
 {"traine":"Asem yaseen",
-"feddbacktext":"you are amazing"},
+"feddbacktext":"he is amazing"},
 {"traine":"Hanen",
-"feddbacktext":"good job"},{
+"feddbacktext":"he did a good job"},{
 "traine":"Karam hatem",
 "feddbacktext":""},
 {"traine":"baraa abumatiq",
 "feddbacktext":""}]
 mona_feedback = JSON.parse(localStorage.getItem("Mona_feedback"))||
 [{"traine":"Talab yaseen",
-"feddbacktext":"you are lazy"},
+"feddbacktext":"he dont arive late anymore"},
 {"traine":"Asem yaseen",
-"feddbacktext":"you are cool"},
+"feddbacktext":"he need to do more effort"},
 {"traine":"Hanen",
 "feddbacktext":""},{
 "traine":"Karam hatem",
@@ -27,9 +30,9 @@ mona_feedback = JSON.parse(localStorage.getItem("Mona_feedback"))||
 "feddbacktext":""}]
 salama_feedback = JSON.parse(localStorage.getItem("Salama_feedback"))||
 [{"traine":"Talab yaseen",
-"feddbacktext":"Good job keep going"},
+"feddbacktext":"he did a good job"},
 {"traine":"Asem yaseen",
-"feddbacktext":"you are cool"},
+"feddbacktext":""},
 {"traine":"Hanen",
 "feddbacktext":""},{
 "traine":"Karam hatem",
@@ -38,9 +41,9 @@ salama_feedback = JSON.parse(localStorage.getItem("Salama_feedback"))||
 "feddbacktext":""}]
 hadeel_feedback = JSON.parse(localStorage.getItem("hadeel_feedback"))||
 [{"traine":"Talab yaseen",
-"feddbacktext":"Dont be late again"},
+"feddbacktext":""},
 {"traine":"Asem yaseen",
-"feddbacktext":"you are cool"
+"feddbacktext":""
 },{"traine":"Hanen",
 "feddbacktext":""},{
 "traine":"Karam hatem",
@@ -48,6 +51,8 @@ hadeel_feedback = JSON.parse(localStorage.getItem("hadeel_feedback"))||
 {"traine":"baraa abumatiq",
 "feddbacktext":""}]
 // localStorage.setItem("loged_in",JSON.stringify(loged_in))
+
+// send feedback data to localstorage
 localStorage.setItem("Alaa_feedback",JSON.stringify(alaa_feedback))
 localStorage.setItem("Mona_feedback",JSON.stringify(mona_feedback))
 localStorage.setItem("Salama_feedback",JSON.stringify(salama_feedback))
@@ -68,6 +73,8 @@ localStorage.setItem("hadeel_feedback",JSON.stringify(hadeel_feedback))
 // document.getElementById("Some").innerHTML = FullData;
 
 
+
+// add tranies name to optins in select
 storege_tranies = JSON.parse(localStorage.getItem("tranies"))   
 let selected = document.getElementById("selectStyle")
 storege_tranies.map(function(tranie){
@@ -88,6 +95,8 @@ document.getElementById("selectStyle").innerHTML = selected;
 
 // }
 
+
+// show feedback for each student by tranier
 function funcselectchange(valu) {
     mona = (JSON.parse(localStorage.getItem("Mona_feedback")))
     mona.forEach(element => {
@@ -114,6 +123,8 @@ function funcselectchange(valu) {
         }
     });
 }
+
+// to get the value from textarea and add it by coach
 function textfunc() {
     traine_name = document.getElementById("selectStyle").value
     text = document.getElementById("textArea").value
@@ -134,7 +145,7 @@ function textfunc() {
 }
 
 
-
+// to add a counter for letters 
 let textarea = document.querySelector("textarea");
 
 textarea.addEventListener("input", event => {
@@ -151,6 +162,8 @@ textarea.addEventListener("input", event => {
     console.log(`${maxLength - currentLength}/ chars left`);
     document.getElementById("lettersCounter").innerHTML =`${maxLength - currentLength}/30`
 });
+
+// to move to other sections in my page by navbar
 function move(ss){
     if (ss == "home") {
         window.location.href = "../homeAfter/homeAfter.html"
@@ -164,6 +177,8 @@ function move(ss){
         window.location.href = "../index.html"
     }
 }
+
+// to add picture from current user 
 currentuser = JSON.parse(localStorage.getItem("currentuser"))
 switch(currentuser.firstName){
     case "Mona":
@@ -178,6 +193,9 @@ switch(currentuser.firstName){
     case "hadeel":
     document.getElementById("image").src = "../img/hadee.png"
     break;
+    default:document.getElementById("image").src = "../img/defaultimages.png"        
+   break;
+    
     
 }
 document.getElementById("namee").innerHTML = currentuser.firstName

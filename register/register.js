@@ -49,6 +49,7 @@ function regex(
 
     if (F.value.match(regname)) {
         flag1 = true
+        document.getElementById('errorF').innerHTML = ''
         return true
     }
     else {
@@ -61,6 +62,7 @@ function regexl() {
 
     if (L.value.match(regname)) {
         flag2 = true
+        document.getElementById('errorL').innerHTML = ''
         return true
     }
     else {
@@ -75,6 +77,7 @@ function regE() {
     let y = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
     if (E.value.match(y)) {
         flag3 = true
+        document.getElementById('errorE').innerHTML = ''
         return true
     }
     else {
@@ -89,6 +92,7 @@ function regE() {
 
 function regc() {
     if (E.value == CE.value) {
+        document.getElementById('errorCE').innerHTML = ''
         return true
     }
     else {
@@ -101,6 +105,7 @@ function regM() {
     let reg = /^\d{10}$/
     if (!isNaN(M.value) && (M.value.match(reg))) {
         flag4 = true
+        document.getElementById('errorM').innerHTML = ''
         return true;
 
     }
@@ -115,6 +120,7 @@ function regp() {
     let regexp = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$@^%&? "])[a-zA-Z0-9!#$@^%&?]{8,20}$/
     if (P.value.match(regexp)) {
         flag5 = true
+        document.getElementById('errorP').innerHTML = ''
         return true
     }
     else {
@@ -126,6 +132,7 @@ function regp() {
 function regcp() {
     if (P.value == CP.value) {
         flag6 = true
+        document.getElementById('errorCP').innerHTML = ''
         return true
     }
     else {
@@ -163,7 +170,7 @@ function data(event) {
 
     if (flag1 && flag2 && flag3 && flag4 && flag5 && flag6 && flag7) {
 
-        let user = { "firstName": F.value, "lastName": L.value, "Email": E.value, "confirmEmail": CE.value, "mobile": M.value, "Password": P.value, "confirmPassword": CP.value };
+        let user = { "firstName": F.value, "lastName": L.value, "Email": E.value, "confirmEmail": CE.value, "mobile": M.value, "Password": P.value, "confirmPassword": CP.value ,'bio':""};
         x.push(user);
      
 
@@ -191,9 +198,13 @@ function login() {
     // var newdata = x.map(data)
     var inputemail = document.getElementById("inputemail").value;
     var inputpassword = document.getElementById("inputpassword").value;
-    let arr = JSON.parse(localStorage.getItem('users')) || [];
-
+    // let arr = JSON.parse(localStorage.getItem('users'))
+    console.log(JSON.parse(localStorage.getItem('users')))
+    if(JSON.parse(localStorage.getItem('users')) == null){console.log("hi");}
+    if(JSON.parse(localStorage.getItem('users'))){
+    arr = (JSON.parse(localStorage.getItem('users')))
     arr.map(e => {
+        console.log(e.Email,"hi")
         if (e.Email == inputemail && e.Password == inputpassword) {
             console.log(`Welcome `)
 
@@ -207,7 +218,7 @@ function login() {
         }
     })
 
-}
+}}
 
 
 

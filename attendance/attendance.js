@@ -1,79 +1,70 @@
-// trainer = [{ "firstName": "Alla", "lastName": "Ammaira", "Email": "alaa@gmail.com", "confirmEmail": "alaa@gmail.com", "mobile": "0778899665", "Password": "Aa@123456789", "confirmPassword": "Aa@123456789", "last_taken_atten":"21/11/2022"}]
-// const today = new Date();
-// const yyyy = today.getFullYear();
-// let mm = today.getMonth() + 1; // Months start at 0!
-// let dd = today.getDate();
-
-// if (dd < 10) dd = '0' + dd;
-// if (mm < 10) mm = '0' + mm;
-
-// const formattedToday = dd + '/' + mm + '/' + yyyy;
-// document.getElementById("daily_date").innerHTML = formattedToday
-// trainer.forEach(element,i => {
-//     console.log(element['last_taken_atten'])
-//     if (element.last_taken_atten == formattedToday) {
-//         document.getElementById("daily_attendance_situ").innerHTML =" DAILY ATTENDANCE NOT TAKEN YET "
-//     }else if ((i == trainer.length-1)) {
-//         document.getElementById("daily_attendance_situ").innerHTML =" DAILY ATTENDANCE TAKEN " 
-//     }
-// })
-// });
 // localStorage.clear()
-// test data
-let tranie1 = {"ID" : 25,
+let tranie1 = {
 "Name" : "Talab yaseen",
-"Tasks(accomplished/missed)" : "50/50",
+"Tasks_accomplished" : 50,
+"Tasks_missed" : 40,
 "absence_days" : 100,
 "all_days":100,
+"status" : "active",
 
 }
-let tranie2 = {"ID" : 26,
+let tranie2 = {
 "Name" : "Karam hatem",
-"Tasks(accomplished/missed)" : "50/4",
+"Tasks_accomplished" : 50,
+"Tasks_missed" : 50,
 "absence_days" : 5,
 "all_days":100,
+"status" : "active",
 
 }
-let tranie3 = {"ID" : 27,
+let tranie3 = {
 "Name" : "Hanen",
-"Tasks(accomplished/missed)" : "50/2",
+"Tasks_accomplished" : 50,
+"Tasks_missed" : 50,
 "absence_days" : 4,
 "all_days":100,
+"status" : "active",
 
  }
- let tranie4 = {"ID" : 28,
+ let tranie4 = {
 "Name" : "Asem yaseen",
-"Tasks(accomplished/missed)" : "50/1",
+"Tasks_accomplished" : 50,
+"Tasks_missed" : 50,
 "absence_days" : 1,
 "all_days":100,
+"status" : "active",
 
  }
- let tranie5 = {"ID" : 29,
+ let tranie5 = {
 "Name" : "baraa abumatiq",
-"Tasks(accomplished/missed)" : "50/0",
+"Tasks_accomplished" : 50,
+"Tasks_missed" : 50,
 "absence_days" : 0,
 "all_days":100,
+"status" : "inactive",
+
  }
 let tranies = JSON.parse(localStorage.getItem("tranies"))||[tranie1,tranie2,tranie3,tranie4,tranie5]
 // git data to local storge
 localStorage.setItem("tranies",(JSON.stringify(tranies)))
 // build the table 
 function read_data(){
-//table headers
-html =`<table class="table"><thead><tr><th class="hied">#</th><th>ID</th><th>Name</th><th>Task<br><span class="Completed_green">Completed</span> / <span class="missd_red">missd</span></th><th>Attendance<br><span class="missd_red">all days/absence days</span></th><th><td  id="remove_head"></td></th><th><button class="input add_button" id="save_attendance" type="button" onclick="save_attendance()">save attendance</button></th><th></th></tr></thead>`
+//table headers  class="hied"
+html =`<table class="table"><thead><tr><th>ID</th><th>Name</th><th>Task<br><span class="Completed_green">Completed</span> / <span class="missd_red">missd</span></th><th>Attendance<br><span class="missd_red">all days/absence days</span></th><th><button class="hied add_button attendance_button" id="save_attendance" type="button" onclick="save_attendance()">save attendance</button></th><th></th><th></th></tr></thead>`
 //build a place to add new_traine and make it invisiable
-html+=`<tr><td></td><td class="hied"><input placeholder="New id" class="input hied" type="number"id="new_id"</td><td><input class="input" placeholder="Name"  type="text" id="new_name"</td><td><button class="input add_button" id="add_button" type="button" onclick="Add_traine_final()">+ADD</button></td><td></td><td></td><td></td><td></td></tr>`
+// html+=`<tr><td></td><td class="hied"><input placeholder="New id" class="input hied" type="number"id="new_id"</td><td><input class="input" placeholder="Name"  type="text" id="new_name"</td><td><button class="input add_button" id="add_button" type="button" onclick="Add_traine_final()">+ADD</button></td><td></td><td></td><td></td><td></td></tr>`
 //make a loop to get data from the array
 storege_tranies = JSON.parse(localStorage.getItem("tranies"))
 i = 1 
-storege_tranies.map(function(tranie){
-html+=`<tr id ="${i}"><td>${i}</td><td class="hied">${tranie.ID}</td><td>${tranie.Name}</td><td>${tranie["Tasks(accomplished/missed)"]}</td><td>${tranie.all_days}/${tranie.absence_days}</td>`
+storege_tranies.map(function(tranie){ if(tranie.status == "active"){
+html+=`<tr id ="${i}"><td>${i}</td><td>${tranie.Name}</td><td>${tranie.Tasks_accomplished}/${tranie.Tasks_missed}</td><td>${tranie.all_days}/${tranie.absence_days}</td>`}
 //make a remove button for each traine and make it invisable give it id from traine id
-html+=`<td><button class="remove remove_button" id="${tranie.ID}" type="button" onclick="remove_traine_final(${tranie.ID})">-del</button></td>`
+// html+=`<td><button class="remove remove_button" id="${tranie.ID}" type="button" onclick="remove_traine_final(${tranie.ID})">-del</button></td>`
 //make abssence button
-html+=`<td><button class="remove add_button" id="${tranie.ID}_" type="button" onclick="take_attendence_final(${tranie.ID})" onmouseover="change(${tranie.ID})" onmouseleave="change2(${tranie.ID})">attendant</button></td>`
+if(tranie.status == "active"){
+html+=`<td><button class="hied add_button attendance_button" id="${i}attendance_button" type="button" onclick="take_attendence_final(${i})" onmouseover="change(${i})" onmouseleave="change2(${i})">attendant</button></td><tr>`}
 //make a edit button for each traine and make it invisable give it id from traine id
-html+=`<td><button class="edite edite_button" id="_${tranie.ID}_" type="button" onclick="edite_traine_final(${i})">edit</button></td>`
+// html+=`<td><button class="edite edite_button" id="_${tranie.ID}_" type="button" onclick="edite_traine_final(${i})">edit</button></td>`
 i = i+1
 }) 
 // close the table 
@@ -94,6 +85,7 @@ function Add_traine(){
     document.getElementById("add_button").style.display = "initial";
 }
     }
+    // add new triane step two
     function Add_traine_final(){
         storege_tranies = JSON.parse(localStorage.getItem("tranies"))  
         new_tranie = {"ID":document.getElementById("new_id").value,
@@ -107,6 +99,7 @@ function Add_traine(){
     localStorage.setItem("tranies",(JSON.stringify(storege_tranies)))
     new_feed = {"traine":document.getElementById("new_name").value,
     "feddbacktext":""}
+    // make a room to add feedback
     arr1 = JSON.parse(localStorage.getItem("Salama_feedback"))||[]
     arr2 = JSON.parse(localStorage.getItem("Mona_feedback"))||[]
     arr3 = JSON.parse(localStorage.getItem("hadeel_feedback"))||[]
@@ -156,45 +149,26 @@ function Add_traine(){
         localStorage.setItem("tranies",(JSON.stringify(update_storege_tranies)))
         read_data()}
 
+            // to make attendance button for each student apper
     function abs_traine() {
-
-        if (document.getElementById("remove_head").style.display == "initial"){
-            document.getElementById("remove_head").style.display = "none";
-            storege_tranies = JSON.parse(localStorage.getItem("tranies")) 
-            storege_tranies.map(function(tranie){
-            document.getElementById(tranie.ID+"_").style.display = "none"
-            document.getElementById("save_attendance").style.display = "none"
-            console.log(tranie.ID)
-        })}
-            else {
-                
-            document.getElementById("save_attendance").style.display = "initial"
-            document.getElementById("remove_head").style.display = "initial";
-            storege_tranies = JSON.parse(localStorage.getItem("tranies")) 
-            storege_tranies.map(function(tranie){
-            document.getElementById(tranie.ID+"_").style.display = "initial"
-            console.log(tranie.ID)})}}
-    function take_attendence_final(i){
-        storege_tranies = JSON.parse(localStorage.getItem("tranies"))
-        console.log(i)
-        update_storege_tranies=storege_tranies.map(element => {
-            if(element.ID == i) {
-                pluse =(Number(element.absence_days)+1);
-                element.absence_days = pluse
-                // pluse1 =(Number(element.all_days)+1);
-                // element.all_days = pluse1
-                document.getElementById(`${element.ID}_`).style.display = "none";
-                return element
-            }else{
-                // pluse =(Number(element.all_days)+1);
-                // element.all_days = pluse
-                return element }
-            
+        attendance_buttons = document.getElementsByClassName("attendance_button");
+        attendance_buttons = [...attendance_buttons]
+        attendance_buttons.forEach(function(element){
+        element.classList.toggle('hied');
+        console.log(element)
         })
-        localStorage.setItem("tranies",JSON.stringify(update_storege_tranies) )
-        
+        console.log(attendance_buttons)
     }
-    // to add new day for all days
+    // take attendance step two
+    function take_attendence_final(i){
+
+        storege_tranies = JSON.parse(localStorage.getItem("tranies"))
+        storege_tranies[i-1].absence_days= Number(storege_tranies[i-1].absence_days) + 1
+        localStorage.setItem("tranies",JSON.stringify(storege_tranies) )
+        document.getElementById(`${i}attendance_button`).style.display = "none"
+        localStorage.setItem("tranies",JSON.stringify(update_storege_tranies) )
+    }
+    // to add new day for all days final step taking attendance
     function save_attendance(){
         update_storege_tranies = storege_tranies.map(element => {
                 pluse =(Number(element.all_days)+1);
@@ -203,18 +177,18 @@ function Add_traine(){
         localStorage.setItem("tranies",JSON.stringify(update_storege_tranies) )
          read_data()
     }
-    // change color for absence
+    // change color for absence button and text
     function change(i){
-        console.log(i)
-        document.getElementById(`${i}_`).innerHTML = "absensce";
-        document.getElementById(`${i}_`).style.backgroundColor = "red";
+        document.getElementById(`${i}attendance_button`).innerHTML = "absensce";
+        document.getElementById(`${i}attendance_button`).style.backgroundColor = "red";
     }
+    // change color for absence button and text
     function change2(i){
         console.log(i)
-        document.getElementById(`${i}_`).innerHTML = "attendant";
-        document.getElementById(`${i}_`).style.backgroundColor = "white";
+        document.getElementById(`${i}attendance_button`).innerHTML = "attendant";
+        document.getElementById(`${i}attendance_button`).style.backgroundColor = "white";
     }
-    //
+    // edit traine step1
     function edite_traine_final(i){
         edit_row = document.getElementById(`${i}`)
         storege_tranies = JSON.parse(localStorage.getItem("tranies")) 
@@ -222,6 +196,7 @@ function Add_traine(){
         input_edit_row = `<tr><td>${i}</td><td class="hied"><input class="change" value="${storege_tranies[i-1].ID}"  type="number"id="change_id"></td><td><input class="change" value="${storege_tranies[i-1].Name}"  type="text" id="change_name"</td><td><input class="change" value="${storege_tranies[i-1]["Tasks(accomplished/missed)"]}"  type="text" id="change_task"</td><td><input class="change"  value="${storege_tranies[i-1].absence_days}"type="text" id="change_attendence"</td><td><button class="edite_save save_edite_button" id="s_${i}_" type="button" onclick="edite_traine_final2(${i})">save</button></td></tr>`
         edit_row.innerHTML = input_edit_row
     }
+        // edit traine step2
     function edite_traine_final2(i) {
         storege_tranies[i-1] = {"ID":document.getElementById("change_id").value,
         "Name":document.getElementById("change_name").value,
@@ -232,6 +207,7 @@ function Add_traine(){
         localStorage.setItem("tranies",(JSON.stringify(storege_tranies)))
         read_data()
     }
+    // move bettwen pages
     function move(ss){
         if (ss == "home") {
             window.location.href = "../homeAfter/homeAfter.html"
@@ -245,6 +221,7 @@ function Add_traine(){
             window.location.href = "../index.html"
         }
     }
+    //choise the which picture to appear
     currentuser = JSON.parse(localStorage.getItem("currentuser"))
     switch(currentuser.firstName){
     case "Mona":
@@ -259,8 +236,11 @@ function Add_traine(){
     case "hadeel":
     document.getElementById("image1").src = "../img/hadee.png"
     break;
+    default:document.getElementById("image1").src = "../img/defaultimages.png"        
+    break;
     
 }
+    //choise the which name to appear
 document.getElementById("namee").innerHTML = currentuser.firstName
 
 

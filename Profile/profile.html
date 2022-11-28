@@ -38,13 +38,17 @@
                     </a></li>
 
                 <li  id="student" onclick="move(id)"><a href="#">
-                        <i class="fas fa-solid fa-graduation-cap"></i>
-                        <span class="nav-item">Student</span>
+                    <i class="fas fa-solid fa-list-check"></i>
+                    <span class="nav-item">Attendance</span>
                     </a></li>
 
                 <li id="feedback" onclick="move(id)"><a href="#">
                         <i class="fas fa-solid fa-comments"></i>
                         <span class="nav-item">Feadback</span>
+                    </a></li>
+                    <li id="" onclick="move(id)"><a href="../students/students.html">
+                        <i class="fas fa-solid fa-graduation-cap"></i>
+                        <span class="nav-item">Students</span>
                     </a></li>
 
 
@@ -64,9 +68,16 @@
             </div>
             <div class="CoachDetails">
                 <div class="textAboutMe">
-                    <h3>About Me</h3>
+                    <h3>About Me<button type="submit" class="edi" onclick="editbio()">Edit</button></h3>
                     <div class="line"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, aperiam consequuntur. Expedita consequatur facere qui et modi voluptate! Et, amet.</p>
+                    <div id="biocontainer">
+                        <p id="bioparagraph"></p>
+                        <input type="text" id="inpbio" class="hidetbio inpbio showbio">
+                        <button type="submit" onclick="savebio()" class="hidetbio showbio" id="savebutton">Save</button>
+                        
+                    </div>
+                    
+                    
                 </div>
                 <div class="line2"></div>
                 
@@ -100,14 +111,46 @@
       <!-- /////////////////// -->
       
       <script>
+        function editbio(){
+           arr= document.getElementsByClassName('showbio')
+           arr=[...arr]
+           arr.forEach(element => {
+               element.classList.toggle('hidetbio')
+               console.log(element);
+            
+           });
+        }
+        function savebio(){
+         let infosave=document.getElementById('inpbio').value
+            document.getElementById('bioparagraph').innerHTML=infosave
+            arr= document.getElementsByClassName('showbio')
+           arr=[...arr]
+           arr.forEach(element => {
+               element.classList.toggle('hidetbio')
+               console.log(element);
+           });
+           let curentuseredited=(JSON.parse(localStorage.getItem('currentuser')))
+           curentuseredited.bio=infosave
+
+           localStorage.setItem('currentuser', JSON.stringify(curentuseredited))
+           let apdate = (JSON.parse(localStorage.getItem('users'))).map(function(user){
+            if(curentuseredited.Email == user.Email){
+                user.bio=curentuseredited.bio
+                return user
+                console.log(user);
+            }
+            return user
+        
+           })
+           localStorage.setItem('users', JSON.stringify(apdate))
+
+        }
+
+
+        document.getElementById('bioparagraph').innerHTML=(JSON.parse(localStorage.getItem('currentuser'))).bio
         function regis() {
           window.location.href = "./register/register.html"
         }
-      </script>
-      </body>
-      </html>
-    <script>
-
         let portfolio=JSON.parse(localStorage.getItem('currentuser'))
         document.getElementById('name').innerHTML=portfolio.firstName+' '+portfolio.lastName
         document.getElementById('email').innerHTML=portfolio.Email
@@ -125,7 +168,8 @@
             case "hadeel":
             document.getElementById("image").src = "../img/hadee.png"
             break;
-            
+            default:document.getElementById("image").src = "../img/defaultimages.png"        
+            break;
         }
         function move(ss){
     if (ss == "home") {
@@ -153,12 +197,14 @@ switch(portfolio.firstName){
             case "hadeel":
             document.getElementById("imgg").src = "../img/hadee.png"
             break;
+            default:document.getElementById("imgg").src = "../img/defaultimages.png"        
+   break;
             
         }
         document.getElementById("namee").innerHTML=portfolio.firstName
 
 
-
+console.log(portfolio);
     </script>
 </body>
 

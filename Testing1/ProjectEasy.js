@@ -17,7 +17,8 @@ eve.addEventListener('click',submitt)
 let arrr;
 
 if (localStorage.pro != null) {
-    arrr = JSON.parse(localStorage.pro)
+    arrr = JSON.parse(localStorage.pro) 
+     read()
 }else {
     arrr = []
 }
@@ -55,18 +56,42 @@ let price
    arrr.push(obj)
    localStorage.setItem('pro',JSON.stringify(arrr))
 
-   let y = JSON.parse(localStorage.getItem('pro'))
-   let table = `<table>`
-   table += `<tr><th>Name</th><th>Food</th><th>Price</th></tr>`
-   arrr.forEach(element => {
-       table += `<tr><td>${element.name}</td><td>${element.food}</td><td>${element.price}</td></tr>`
-   });
-   table += `</table>`
+   read()
+
+}
+
+function read() {
+let y = JSON.parse(localStorage.getItem('pro'))
+let table = `<table>`
+table += `<tr><th>Name</th><th>Food</th><th>Price</th></tr>`
+ arrr.forEach(element => {
+table += `<tr><td>${element.name}</td><td>${element.food}</td><td>${element.price}</td></tr>`
+});
+table += `</table>`
 
 //    arrr.map(function (ele){
 //     console.log(ele.name,ele.price,ele.food)
 //    })
-   document.getElementById('p1').innerHTML = table
+document.getElementById('p1').innerHTML = table
+
+
+}
+
+
+let del = document.getElementById('deleteTable')
+del.addEventListener('click', deletetab)
+
+function deletetab(){
+    document.getElementById('p1').innerHTML = ''
+
+}
+
+let clearlocal =  document.getElementById('deleteStorage')
+clearlocal.addEventListener('click',clearstor)
+
+function clearstor() {
+    document.getElementById('p1').innerHTML = ''
+    localStorage.clear()
 }
 
 
