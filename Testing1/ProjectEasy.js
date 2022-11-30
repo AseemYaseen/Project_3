@@ -92,6 +92,7 @@ clearlocal.addEventListener('click',clearstor)
 function clearstor() {
     document.getElementById('p1').innerHTML = ''
     localStorage.clear()
+    
 }
 
 
