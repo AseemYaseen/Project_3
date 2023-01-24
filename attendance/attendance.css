@@ -424,19 +424,3 @@ opacity: 0.8;
   color: #efc437;
 }
 /* ////////// */
-
-@media (max-width:768px){
-
-  nav:hover {
-      width: 0px;
-      transition: 1s;
-  }
-} 
-
-@media (max-width:992px){
- 
-  nav:hover {
-      width: 0px;
-      transition: 1s;
-  }
-}

@@ -109,7 +109,6 @@ a:hover .fas {
     width: 100%;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 .coachProfile{
     margin-right: 1%;
@@ -128,7 +127,6 @@ a:hover .fas {
 }
 .imageprofile h3{
     padding: 4%;
-    display: inline;
     text-align: center;
     font-size: 160%;
     background: linear-gradient(-50deg, #f4f4f4,  #e9e9e9c8,  #f4f4f4);
@@ -163,20 +161,6 @@ a:hover .fas {
     border-width: 5px 5px 5px 5px;
 
 }
-.edi{
-    margin-left: 2%;
-    padding: 2px;
-    color: #d79f03;
-    background-color: #323232;
-    border-radius: 20%;
-}
-#savebutton{
-    margin-left: 2%;
-    padding: 2px;
-    color: #d79f03;
-    background-color: #323232;
-    border-radius: 20%;
-}
 .CoachDetails h3{
     text-align: center;
     padding: 2%;
@@ -193,8 +177,6 @@ a:hover .fas {
     text-align: center;
     
 }
-
-
 .textAboutMe .line{
     margin: 0% auto;
     width: 40%;
@@ -205,14 +187,6 @@ a:hover .fas {
     padding: 2%;
 }
 
-.inpbio{
-    margin: 3% auto;
-    height: 10vh;
-    width: 80%;
-}
-.hidetbio{
-    display: none;
-}
 .textemail{
     padding: 4%;
 }
@@ -264,56 +238,3 @@ a:hover .fas {
     border-radius:50%;
   }
 /* ////////// */
-
- 
-
-@media (max-width:992px){
-    .Profile{
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-        /* height: 60vh; */
-        width: 110%;
-        justify-content: center;
-    align-items: center;
-    }
-
-    nav:hover {
-        width: 0px;
-        transition: 1s;
-    }
-    .CoachDetails{
-        margin: 0% auto;
-
-    }
-    .coachProfile{
-        margin: 10% auto 0%;
-        width: 40%;
-
-    }
-}    
-
-@media (max-width:768px){
-    .Profile{
-        margin: 0% auto;
-        display: flex;
-        flex-direction: column;
-        font-size: 40%;
-        height: 40vh;
-        width: 110%;
-        justify-content: center;
-        align-items: center;
-    
-    }
-    nav:hover {
-        width: 0px;
-        transition: 1s;
-    }
-}
-
-/* @media (max-width:576px){
-    nav:hover {
-        width: 0px;
-        transition: 1s;
-    }
-} */

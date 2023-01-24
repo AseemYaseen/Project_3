@@ -193,9 +193,6 @@ switch(currentuser.firstName){
     case "hadeel":
     document.getElementById("image").src = "../img/hadee.png"
     break;
-    default:document.getElementById("image").src = "../img/defaultimages.png"        
-   break;
-    
     
 }
 document.getElementById("namee").innerHTML = currentuser.firstName

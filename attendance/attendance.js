@@ -236,8 +236,6 @@ function Add_traine(){
     case "hadeel":
     document.getElementById("image1").src = "../img/hadee.png"
     break;
-    default:document.getElementById("image1").src = "../img/defaultimages.png"        
-    break;
     
 }
     //choise the which name to appear

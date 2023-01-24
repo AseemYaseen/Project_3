@@ -437,19 +437,3 @@ opacity: 0.8;
   height: 70px;
   border-radius:50%;
 }
-
-@media (max-width:768px){
-
-  nav:hover {
-      width: 0px;
-      transition: 1s;
-  }
-} 
-
-@media (max-width:992px){
- 
-  nav:hover {
-      width: 0px;
-      transition: 1s;
-  }
-}

@@ -189,27 +189,3 @@ a:hover .fas {
     color: #efc437;
 }
 /* ////////// */
-
-@media (max-width:992px){
-    .btnregis {
-        font-size: 90%;
-        
-    }
-    nav:hover {
-        width: 0px;
-        transition: 1s;
-    }
-    
-}
-@media (max-width:768px){
-.btnregis {
-    font-size: 60%;
-
-}
-nav:hover {
-    width: 0px;
-    transition: 1s;
-}
-
-}
-
